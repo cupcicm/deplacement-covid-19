@@ -239,7 +239,6 @@ $('#generate-btn').addEventListener('click', async event => {
   saveProfile()
   const reasons = getAndSaveReasons()
   const pdfBlob = await generatePdf(getProfile(), reasons)
-  localStorage.clear()
   const creationDate = new Date().toLocaleDateString('fr-CA')
   const creationHour = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }).replace(':', '-')
   downloadBlob(pdfBlob, `attestation-${creationDate}_${creationHour}.pdf`) 
