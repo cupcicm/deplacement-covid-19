@@ -42,6 +42,14 @@ function setDateNow (date) {
 }
 
 document.addEventListener('DOMContentLoaded', setReleaseDateTime)
+document.addEventListener('DOMContentLoaded', fillIn)
+
+function fillIn() {
+  for (const field of $$('#form-profile input')) {
+    field.value = localStorage.getItem(field.id.substring('field-'.length)) || '';
+  }
+  setReleaseDateTime();
+}
 
 function setReleaseDateTime () {
   const loadedDate = new Date()
