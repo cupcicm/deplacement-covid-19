@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', fillIn)
 
 function fillIn() {
   for (const field of $$('#form-profile input')) {
+    if (field.id === '#field-datesortie' || field.id === 'field-heuresortie' || field.name === 'field-reason') {
+      continue;
+    }
     field.value = localStorage.getItem(field.id.substring('field-'.length)) || '';
   }
   setReleaseDateTime();
